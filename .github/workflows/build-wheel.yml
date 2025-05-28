@@ -28,6 +28,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v0.1.0
+          files: dist/dist/*.whl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        files: dist/*.whl
