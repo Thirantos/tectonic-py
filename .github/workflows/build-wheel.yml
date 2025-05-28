@@ -23,4 +23,4 @@ jobs:
         uses: actions/upload-artifact@v4.6.2
         with:
           name: python-wheel
-          path: dist/*.whl
+          path: dist/dist/*.whl
