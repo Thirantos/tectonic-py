@@ -1,7 +1,7 @@
-use std::ops::Deref;
-use tectonic;
 use pyo3::prelude::*;
 use pyo3::types::PyBytes;
+use std::ops::Deref;
+use tectonic;
 
 fn as_detailed_message(err: &dyn Error) -> String {
     let mut msg = err.to_string();
@@ -14,15 +14,15 @@ fn as_detailed_message(err: &dyn Error) -> String {
     msg
 }
 
-
 #[pyfunction]
 fn latex_to_pdf(py: Python, source: &str) -> PyResult<Py<PyBytes>> {
     match tectonic::latex_to_pdf(source) {
         Ok(pdf_bytes) => Ok(PyBytes::new(py, &pdf_bytes).into()),
-        Err(err) => Err(pyo3::exceptions::PyRuntimeError::new_err(as_detailed_message(&err)),
+        Err(err) => Err(pyo3::exceptions::PyRuntimeError::new_err(
+            as_detailed_message(&err),
+        )),
     }
 }
-
 
 /// Module definition
 #[pymodule]
