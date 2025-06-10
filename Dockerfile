@@ -1,12 +1,12 @@
 # syntax=docker/dockerfile:1.4
-FROM python:3.12-slim AS builder
+FROM python:3.13-slim AS builder
 LABEL authors="thirantos"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl build-essential pkg-config git ca-certificates \
-    libfontconfig1-dev libfreetype6-dev libgraphite2-dev \
-    libharfbuzz-dev libicu-dev libpng-dev libssl-dev zlib1g-dev patchelf\
-    && rm -rf /var/lib/apt/lists/*
+  curl build-essential pkg-config git ca-certificates \
+  libfontconfig1-dev libfreetype6-dev libgraphite2-dev \
+  libharfbuzz-dev libicu-dev libpng-dev libssl-dev zlib1g-dev patchelf\
+  && rm -rf /var/lib/apt/lists/*
 
 
 # Install Rust using rustup and set it up in PATH
