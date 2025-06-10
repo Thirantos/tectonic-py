@@ -1,5 +1,6 @@
 use pyo3::prelude::*;
 use pyo3::types::PyBytes;
+use std::error::Error;
 use std::ops::Deref;
 use tectonic;
 
